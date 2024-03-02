@@ -70,7 +70,7 @@ async function main() {
   }
 
   await setCurrentVersion(nextVersion);
-  consola.success(`Bumped to v${nextVersion}`);
+  console.log(`√ Bumped to v${nextVersion}`);
 
   await run("git", ["add", "."]);
   await run("git", ["commit", "-m", `release: v${nextVersion}`]);
