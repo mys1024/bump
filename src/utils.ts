@@ -1,7 +1,27 @@
 import { execa } from "execa";
 
+const filePaths = ["deno.json", "deno.jsonc"];
+
+export async function findVersionFile() {
+  for (const filePath of filePaths) {
+    try {
+      await Deno.stat(filePath);
+      return filePath;
+    } catch {
+      continue;
+    }
+  }
+  return undefined;
+}
+
 export async function getCurrentVersion() {
-  const filePath = "deno.json";
+  const filePath = await findVersionFile();
+  if (!filePath) {
+    return {
+      file: undefined,
+      version: undefined,
+    };
+  }
   const file = await Deno.readTextFile(filePath);
   const version = JSON.parse(file).version as string | undefined;
   return {
@@ -10,8 +30,7 @@ export async function getCurrentVersion() {
   };
 }
 
-export async function setCurrentVersion(version: string) {
-  const filePath = "deno.json";
+export async function setCurrentVersion(filePath: string, version: string) {
   const file = await Deno.readTextFile(filePath);
   const fileJson = JSON.parse(file);
   fileJson.version = version;

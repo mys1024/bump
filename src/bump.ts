@@ -8,8 +8,16 @@ import { getCurrentVersion, run, setCurrentVersion } from "./utils.ts";
 export async function bump() {
   // get current version
   const { version: currentVer, file } = await getCurrentVersion();
+  if (!file) {
+    console.error(
+      `Could not find a version file. Expected: deno.json or deno.jsonc.`,
+    );
+    Deno.exit(-1);
+  }
   if (!currentVer) {
-    console.error(`Could not read the version from ${file}`);
+    console.error(
+      `Could not read the version from ${file}. Expected: "version" field.`,
+    );
     Deno.exit(-1);
   }
 
@@ -59,7 +67,7 @@ export async function bump() {
       message: "Enter a custom version",
     });
     if (!canParse(customVersion)) {
-      console.error(`Invalid version: ${customVersion}`);
+      console.error(`Invalid version: "${customVersion}".`);
       Deno.exit(-1);
     }
     nextVersion = customVersion;
@@ -88,7 +96,7 @@ export async function bump() {
   console.log();
 
   // update version
-  await setCurrentVersion(nextVersion);
+  await setCurrentVersion(file, nextVersion);
   console.log(`${green("√")} Updated ${file}`);
 
   // git commit
