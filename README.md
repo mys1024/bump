@@ -7,6 +7,12 @@
 
 Bump the version in `deno.json`.
 
+## Usage
+
+```sh
+deno run -A jsr:@mys/bump
+```
+
 ## License
 
 [MIT](./LICENSE) License &copy; 2024-PRESENT mys1024

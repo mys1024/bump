@@ -19,7 +19,6 @@
     "execa": "npm:execa@8.0.1"
   },
   "exports": {
-    ".": "./src/main.ts",
-    "./bump": "./src/bump.ts"
+    ".": "./src/main.ts"
   }
 }
