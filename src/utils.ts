@@ -4,7 +4,10 @@ export async function getCurrentVersion() {
   const filePath = "deno.json";
   const file = await Deno.readTextFile(filePath);
   const version = JSON.parse(file).version as string | undefined;
-  return version;
+  return {
+    file: filePath,
+    version,
+  };
 }
 
 export async function setCurrentVersion(version: string) {

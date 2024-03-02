@@ -6,9 +6,9 @@ import enquirer from "enquirer";
 import { getCurrentVersion, run, setCurrentVersion } from "./utils.ts";
 
 async function main() {
-  const currentVer = await getCurrentVersion();
+  const { version: currentVer, file } = await getCurrentVersion();
   if (!currentVer) {
-    console.error("Could not read the current version from deno.json");
+    console.error(`Could not read the version from ${file}`);
     Deno.exit(-1);
   }
 
@@ -69,7 +69,7 @@ async function main() {
   console.log();
 
   await setCurrentVersion(nextVersion);
-  console.log(`${green("√")} Bumped to v${nextVersion}`);
+  console.log(`${green("√")} Updated ${file}`);
 
   await run("git", ["add", "."]);
   await run("git", ["commit", "-m", `release: v${nextVersion}`]);
