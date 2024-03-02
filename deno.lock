@@ -4,7 +4,6 @@
     "specifiers": {
       "jsr:@std/fmt@0.218": "jsr:@std/fmt@0.218.2",
       "jsr:@std/semver@0.218": "jsr:@std/semver@0.218.2",
-      "npm:consola@3.2.3": "npm:consola@3.2.3",
       "npm:enquirer@2.4.1": "npm:enquirer@2.4.1",
       "npm:execa@8.0.1": "npm:execa@8.0.1"
     },
@@ -23,10 +22,6 @@
       },
       "ansi-regex@5.0.1": {
         "integrity": "sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==",
-        "dependencies": {}
-      },
-      "consola@3.2.3": {
-        "integrity": "sha512-I5qxpzLv+sJhTVEoLYNcTW+bThDCPsit0vLNKShZx6rLtpilNpmmeTPaeqJb9ZE9dV3DGaeby6Vuhrw38WjeyQ==",
         "dependencies": {}
       },
       "cross-spawn@7.0.3": {
@@ -140,7 +135,6 @@
       "jsr:@std/assert@0.218",
       "jsr:@std/fmt@0.218",
       "jsr:@std/semver@0.218",
-      "npm:consola@3.2.3",
       "npm:enquirer@2.4.1",
       "npm:execa@8.0.1"
     ]
