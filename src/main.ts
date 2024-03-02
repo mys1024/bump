@@ -76,6 +76,10 @@ async function main() {
   await run("git", ["tag", `v${nextVersion}`]);
   console.log(`${green("√")} Git tag`);
 
+  await run("git", ["push"]);
+  await run("git", ["push", "origin", `v${nextVersion}`]);
+  console.log(`${green("√")} Git push`);
+
   Deno.exit(0);
 }
 
