@@ -7,9 +7,6 @@ on:
 
 jobs:
   publish-to-jsr:
-    # If you want to publish this package to JSR, please delete the next line.
-    if: ${{ false }}
-
     name: Publish to JSR
     runs-on: ubuntu-latest
 
