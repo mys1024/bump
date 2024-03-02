@@ -43,7 +43,6 @@ async function main() {
     },
   );
   if (nextVersion === "cancel") {
-    console.log("Cancelled.");
     Deno.exit(0);
   }
 
@@ -63,7 +62,6 @@ async function main() {
     skip: nextVersion === "cancel",
   });
   if (!bump) {
-    console.log("Cancelled.");
     Deno.exit(0);
   }
   console.log();
