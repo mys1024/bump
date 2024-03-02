@@ -3,6 +3,7 @@ import { gray, green } from "@std/fmt/colors";
 import { increment } from "@std/semver/increment";
 import { format } from "@std/semver/format";
 import enquirer from "enquirer";
+import consola from "consola";
 import { getCurrentVersion, run, setCurrentVersion } from "./utils.ts";
 
 async function main() {
@@ -69,9 +70,14 @@ async function main() {
   }
 
   await setCurrentVersion(nextVersion);
+  consola.success(`Bumped to v${nextVersion}`);
+
   await run("git", ["add", "."]);
   await run("git", ["commit", "-m", `release: v${nextVersion}`]);
+  consola.success(`Git commit`);
+
   await run("git", ["tag", `v${nextVersion}`]);
+  consola.success(`Git tag`);
 
   Deno.exit(0);
 }

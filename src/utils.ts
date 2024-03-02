@@ -12,15 +12,16 @@ export async function setCurrentVersion(version: string) {
   const file = await Deno.readTextFile(filePath);
   const fileJson = JSON.parse(file);
   fileJson.version = version;
-  await Deno.writeTextFile(filePath, JSON.stringify(fileJson, undefined, 2));
+  await Deno.writeTextFile(
+    filePath,
+    JSON.stringify(fileJson, undefined, 2) + "\n",
+  );
 }
 
 export async function run(command: string, args: string[] = []) {
-  const { stdout, stderr, failed } = await execa(command, args);
+  const { stderr, failed } = await execa(command, args);
   if (failed) {
     console.error(stderr);
     Deno.exit(-1);
-  } else {
-    console.log(stdout);
   }
 }

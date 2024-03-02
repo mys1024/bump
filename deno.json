@@ -1,6 +1,6 @@
 {
   "name": "@mys/bump",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "tasks": {
     "run": "deno run -A src/main.ts",
     "run:watch": "deno run -A --watch src/main.ts",
@@ -16,7 +16,8 @@
     "@std/semver": "jsr:@std/semver@0.218",
     "@std/fmt": "jsr:@std/fmt@0.218",
     "enquirer": "npm:enquirer@2.4.1",
-    "execa": "npm:execa@8.0.1"
+    "execa": "npm:execa@8.0.1",
+    "consola": "npm:consola@3.2.3"
   },
   "exports": {
     ".": "./src/main.ts"
