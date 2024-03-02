@@ -1,6 +1,8 @@
 import { assertEquals } from "@std/assert";
-import { run } from "./utils.ts";
+import { findVersionFile } from "./utils.ts";
 
-Deno.test("run", async () => {
-  assertEquals(await run("echo", ["foo"]), '"foo"');
+Deno.test("utils", async (t) => {
+  await t.step("findVersionFile()", async () => {
+    assertEquals(await findVersionFile(), "deno.json");
+  });
 });
