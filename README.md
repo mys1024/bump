@@ -1,4 +1,4 @@
-# @mys/bump
+# bump
 
 [![GitHub License](https://img.shields.io/github/license/mys1024/bump?&style=flat-square)](./LICENSE)
 [![GitHub Tag](https://img.shields.io/github/v/tag/mys1024/bump?sort=semver&style=flat-square&label=JSR&color=rgb(247%2C223%2C30))](https://jsr.io/@mys1024/bump)
