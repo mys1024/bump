@@ -1,14 +1,14 @@
 {
   "name": "@mys/bump",
-  "version": "0.1.8",
+  "version": "0.2.0",
   "tasks": {
     "run": "deno run -A src/main.ts",
     "run:watch": "deno run -A --watch src/main.ts",
     "cache": "deno cache --lock-write src/main.ts src/**/*.test.ts",
     "cache:reload": "deno cache --reload src/main.ts src/**/*.test.ts",
-    "test": "deno test",
-    "test:watch": "deno test --watch",
-    "test:cov": "deno test --coverage && deno coverage && deno coverage --html",
+    "test": "deno test -A",
+    "test:watch": "deno test -A --watch",
+    "test:cov": "deno test -A --coverage && deno coverage && deno coverage --html",
     "publish": "deno publish"
   },
   "imports": {

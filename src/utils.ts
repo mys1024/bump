@@ -22,9 +22,10 @@ export async function setCurrentVersion(version: string) {
 }
 
 export async function run(command: string, args: string[] = []) {
-  const { stderr, failed } = await execa(command, args);
+  const { stdout, stderr, failed } = await execa(command, args);
   if (failed) {
     console.error(stderr);
     Deno.exit(-1);
   }
+  return stdout;
 }
