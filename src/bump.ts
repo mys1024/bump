@@ -65,6 +65,7 @@ export async function bump() {
       type: "input",
       name: "customVersion",
       message: "Enter a custom version",
+      initial: currentVer,
     });
     if (!canParse(customVersion)) {
       console.error(`Invalid version: "${customVersion}".`);
