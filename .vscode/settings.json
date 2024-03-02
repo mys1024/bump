@@ -28,7 +28,9 @@
     "editor.formatOnSave": true
   },
   "cSpell.words": [
+    "consola",
     "deno",
-    "denoland"
+    "denoland",
+    "execa"
   ]
 }

@@ -1,9 +1,9 @@
 {
-  "name": "",
+  "name": "@mys/bump",
   "version": "0.1.0",
   "tasks": {
-    "run": "deno run src/main.ts",
-    "run:watch": "deno run --watch src/main.ts",
+    "run": "deno run -A src/main.ts",
+    "run:watch": "deno run -A --watch src/main.ts",
     "cache": "deno cache --lock-write src/main.ts src/**/*.test.ts",
     "cache:reload": "deno cache --reload src/main.ts src/**/*.test.ts",
     "test": "deno test",
@@ -12,7 +12,11 @@
     "publish": "deno publish"
   },
   "imports": {
-    "@std/assert": "jsr:@std/assert@0.216"
+    "@std/assert": "jsr:@std/assert@0.218",
+    "@std/semver": "jsr:@std/semver@0.218",
+    "@std/fmt": "jsr:@std/fmt@0.218",
+    "enquirer": "npm:enquirer@2.4.1",
+    "execa": "npm:execa@8.0.1"
   },
   "exports": {
     ".": "./src/main.ts"
