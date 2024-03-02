@@ -62,11 +62,11 @@ async function main() {
     message: "Bump?",
     skip: nextVersion === "cancel",
   });
-
   if (!bump) {
     console.log("Cancelled.");
     Deno.exit(0);
   }
+  console.log();
 
   await setCurrentVersion(nextVersion);
   console.log(`${green("√")} Bumped to v${nextVersion}`);
