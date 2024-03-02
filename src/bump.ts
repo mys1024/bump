@@ -1,4 +1,4 @@
-import { parse } from "@std/semver";
+import { canParse, parse } from "@std/semver";
 import { gray, green } from "@std/fmt/colors";
 import { increment } from "@std/semver/increment";
 import { format } from "@std/semver/format";
@@ -18,7 +18,7 @@ export async function bump() {
   const patchVer = format(increment(currentSemver, "patch"));
   const minorVer = format(increment(currentSemver, "minor"));
   const majorVer = format(increment(currentSemver, "major"));
-  const { nextVersion } = await enquirer.prompt<{ nextVersion: string }>(
+  let { nextVersion } = await enquirer.prompt<{ nextVersion: string }>(
     {
       type: "select",
       name: "nextVersion",
@@ -37,6 +37,10 @@ export async function bump() {
           message: `          Major ${majorVer}`,
         },
         {
+          name: "custom",
+          message: `          Custom`,
+        },
+        {
           name: "cancel",
           message: `          Cancel`,
         },
@@ -45,6 +49,20 @@ export async function bump() {
   );
   if (nextVersion === "cancel") {
     Deno.exit(0);
+  }
+
+  // custom version
+  if (nextVersion === "custom") {
+    const { customVersion } = await enquirer.prompt<{ customVersion: string }>({
+      type: "input",
+      name: "customVersion",
+      message: "Enter a custom version",
+    });
+    if (!canParse(customVersion)) {
+      console.error(`Invalid version: ${customVersion}`);
+      Deno.exit(-1);
+    }
+    nextVersion = customVersion;
   }
 
   // print info

@@ -1,6 +1,6 @@
 {
   "name": "@mys/bump",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "tasks": {
     "run": "deno run -A src/main.ts",
     "run:watch": "deno run -A --watch src/main.ts",
@@ -19,6 +19,7 @@
     "execa": "npm:execa@8.0.1"
   },
   "exports": {
-    ".": "./src/main.ts"
+    ".": "./src/main.ts",
+    "./bump": "./src/bump.ts"
   }
 }
