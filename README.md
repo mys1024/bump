@@ -10,7 +10,7 @@ Bump the version in `deno.json`.
 ## Usage
 
 ```sh
-deno run -A jsr:@mys/bump
+deno run -A jsr:@mys/bump@1
 ```
 
 ## License
